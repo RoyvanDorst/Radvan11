@@ -45,9 +45,9 @@
     const result     = document.getElementById('result');
 
     const prizes = [
-      '1 Lolly', '2 Rubiaatje 18+', '3 Fan-kaart van Knip und Knots', '4 Chocolaatje',
-      '5 Speculaasje', '6 Lolly', '7 Rondleiding in `t Kot', '8 Gratis deelname aan Spel 2',
-      '9 Chocolaatje', '10 Speculaasje', '11 Koffie met Appeltaart'
+      'Lolly', 'Rubiaatje 18+', 'Fan-kaart van Knip und Knots', 'Chocolaatje',
+      'Speculaasje', 'Lolly', 'Rondleiding in `t Kot', 'Gratis deelname aan Spel 2',
+      'Chocolaatje', 'Speculaasje', 'Koffie met Appeltaart'
     ];
 
     let isSpinning = false;
@@ -284,4 +284,5 @@
           alert('Reset voltooid: iedereen kan weer draaien.');
         }
       }
+
     });
