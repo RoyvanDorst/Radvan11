@@ -1,0 +1,172 @@
+ /* ============ Basis layout en thema ============ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    .container { 
+      text-align: center;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .subtitle { font-size: 1.1rem; margin-bottom: 22px; opacity: 0.9; }
+
+    /* ============ Wiel ============ */
+    .wheel-container {
+      position: relative;
+      top: 20px;
+      width: 350px;
+      height: 350px;
+      margin: 0 auto 24px;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+      background: conic-gradient(
+        #e74c3c 0deg 32.727deg,
+        #3498db 32.727deg 65.454deg,
+        #c0392b 65.454deg 98.181deg,
+        #2980b9 98.181deg 130.908deg,
+        #e74c3c 130.908deg 163.635deg,
+        #3498db 163.635deg 196.362deg,
+        #c0392b 196.362deg 229.089deg,
+        #2980b9 229.089deg 261.816deg,
+        #e74c3c 261.816deg 294.543deg,
+        #3498db 294.543deg 327.270deg,
+        #f8c471 327.270deg 360deg
+      );
+    }
+
+    /* WIN-pijl: rood en naar beneden wijzend */
+    .pointer{
+      position: absolute;
+      z-index: 10; /* Zorg dat dit hoger is dan het rad */
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 24px solid #e74c3c; /* rood */
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.35));
+    }
+
+    .center-circle {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: #2c3e50;
+      border-radius: 50%;
+      border: 4px solid #ecf0f1;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+    }
+
+    /* Sectorteksten (11 sectoren) */
+   
+    .wheel-section {
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 50%;
+      top: 50%;
+      transform-origin: center center ; /* of 50% 100% afhankelijk van je layout */
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      color: white;
+      text-align: center;
+    }
+
+    .wheel-section span {
+      display: inline-block;
+      transform: rotate(-106deg);
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+      white-space: nowrap; /* voorkomt afbreken */
+      
+    }
+
+      /* Rotate is 2deg minder dan 32.727deg */
+    .section-1  { transform: rotate(30.727deg) translate(0, -100px); }
+    .section-2  { transform: rotate(63.454deg) translate(0, -100px); }
+    .section-3  { transform: rotate(96.181deg) translate(0, -100px); }
+    .section-4  { transform: rotate(128.908deg) translate(0, -100px); }
+    .section-5  { transform: rotate(161.635deg) translate(0, -100px); }
+    .section-6  { transform: rotate(194.362deg) translate(0, -100px); }
+    .section-7  { transform: rotate(227.089deg) translate(0, -100px); }
+    .section-8  { transform: rotate(259.816deg) translate(0, -100px); }
+    .section-9  { transform: rotate(292.543deg) translate(0, -100px); }
+    .section-10 { transform: rotate(325.270deg) translate(0, -100px); }
+    .section-11 { transform: rotate(358.000deg) translate(0, -100px); }
+
+
+      /*.section-1  { transform: rotate(-73.64deg) translate(-20px, 255px) rotate(16.36deg); }
+      .section-2  { transform: rotate(-40.913deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-3  { transform: rotate(-8.186deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-4  { transform: rotate(24.541deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-5  { transform: rotate(57.268deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-6  { transform: rotate(89.995deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-7  { transform: rotate(122.722deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-8  { transform: rotate(155.449deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-9  { transform: rotate(188.176deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-10 { transform: rotate(220.903deg) translate(-20px, -20px) rotate(16.36deg); }
+      .section-11 { transform: rotate(253.63deg) translate(-20px, -20px) rotate(16.36deg); } */
+
+      /* Knop & resultaat */
+    .spin-button {
+      margin: 10px 0 0; padding: 14px 22px; border: none; border-radius: 10px;
+      background: #f39c12; color: #fff; font-weight: 800; cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .spin-button:hover { filter: brightness(1.05); }
+    .spin-button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .result { margin-top: 20px; min-height: 76px; transition: opacity 0.3s ease; opacity: 0.9; }
+    .result.show { opacity: 1; }
+
+    /* Confetti */
+    .confetti {
+      position: fixed; top: -10px; width: 8px; height: 14px; opacity: 0.9;
+      animation: fall 5s linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(105vh) rotate(720deg); opacity: 1; } }
+
+    /* Subtile titel-glow */
+    @keyframes glow {
+      from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.25); }
+      to   { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.60); }
+    }
